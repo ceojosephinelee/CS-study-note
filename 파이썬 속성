@@ -1,0 +1,63 @@
+##클래스(빵틀)와 오브젝트(빵-객체)
+
+class Person:
+
+  def say_hello():
+    print("안녕")
+
+p=Person()
+p.say_hello()  
+
+#--------------------------
+class Person:
+  name="워니"
+
+  def say_hello(self):  #인사하는 함수/self-->인자(이름 말하는)
+    print("안녕 "+ self.name)  #self.name
+
+p=Person()  #p는 객체
+p.say_hello()    #p라는 객체는 Person이라는 클래스의 객체이고 이 클래스에서 함수 say_hello를 호출. 
+
+#-------------------------
+class Person:
+  def __init__(self, name):
+    self.name=name
+
+  def say_hello(self):
+    print("안녕"+self.name)
+
+wonie=Person("워니")
+michael=Person("마이클")
+
+wonie.say_hello()
+michael.say_hello()  
+
+#----------------------
+class Person:
+  def __init__(self, name):
+    self.name=name
+
+  def say_hello(self, to_name):
+    print("안녕"+to_name+"나는"+ self.name)
+
+wonie=Person("워니")
+michael=Person("마이클")
+
+wonie.say_hello("영희")
+michael.say_hello("철수") 
+
+#------------------------------
+class Person:
+  def __init__(self, name, age):#age라는 인자 추가
+    self.name=name
+    self.age=age
+
+  def say_hello(self, to_name):
+    print("안녕"+to_name+"나는"+ self.name)
+
+  def introduce(self):
+    print("내 이름은"+self.name+"그리고 나는"+str(self.age)+"살이야") #str-->문자열로 캐스팅해줘야함. 
+
+wonie=Person("워니", 20)
+
+wonie.introduce()
