@@ -1,0 +1,21 @@
+##const and let
+const a=4;
+const b=2;
+let myName="nico";
+
+console.log(a+b);
+console.log(a/b);
+console.log("hello "+myName);
+
+myName="jihyun";
+console.log("my new name is "+myName);
+
+##Booleans
+const amIFat=true;
+let something;
+const amIShort=null;
+console.log(something, amIFat, amIShort);
+==>true/false/null(변수가 없다는 값이 있음)/undefined(메모리에 변수 선언but 값 없음)
+
+#Arrays
+
