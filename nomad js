@@ -17,5 +17,83 @@ const amIShort=null;
 console.log(something, amIFat, amIShort);
 ==>true/false/null(변수가 없다는 값이 있음)/undefined(메모리에 변수 선언but 값 없음)
 
-#Arrays
+#Arrays-->데이터를 정리하는 좋은 방법1
+const daysOfWeek=["mon","tue","wed","thu","fri","sat","sun"];
+
+console.log(daysOfWeek[5]);
+
+daysOfWeek.push("sun");//검색-->javascript array add data
+
+console.log(daysOfWeek);
+
+##Object-->데이터를 정리하는 좋은 방법2
+const player={
+    name:"nico",
+    points: 10,
+    fat:true,
+};
+console.log(player);
+player.fat=false;   //player=false;-->error(const 때문에)//이렇게 update 가능
+console.log(player);
+player.lastname="potato"; //추가도 가능
+console.log(player);
+
+##Functions 1
+function sayHello(){   //함수 만드는법-->sayHello()를 실행할때마다(함수 호출할 때마다)
+                       //괄호 안의 값들이 실행된다!
+    console.log("Hello!");
+}
+sayHello();
+sayHello(); 
+
+function sayHello(){
+    console.log("Hello my name is C");
+}
+sayHello("nico");
+sayHello("dal");
+sayHello("lynn");//실행해보면 저 괄호 값이 바뀌지 않음-->함수는 호출했고 데이터를 전송했지만 데이터를 받지 못하고 있는 상태임.
+
+##Functions 2
+function sayHello(nameOfPerson){
+    console.log(nameOfPerson);
+}
+
+sayHello("nico");
+sayHello("lynn");
+//data추가
+function sayHello(nameOfPerson, age){
+    console.log(nameOfPerson, age);//얼마든지 받을 데이터 추가할 수 있음.
+    console.log("Hㄷllo my name is "+nameOfPerson+" and I am "+age+" years old");
+}
+
+sayHello("nico",10);
+sayHello("lynn",20);
+
+//간단한 계산기
+function plus(firstNumber, secondNumber){
+    console.log(firstNumber+secondNumber);
+}
+plus(60,8);//순서 매우 중요
+console.log(firstNumber);//-->Error-->firstNumber라는 변수는 function 안에만 존재!!
+
+//
+function plus(firstNumber, secondNumber){
+    console.log(firstNumber+secondNumber);
+}
+plus(60,8);//순서 매우 중요
+
+function divide(a,b){
+    console.log(a/b);
+}
+divide(8,2);
+
+//
+const player={
+    name:"nico",
+    sayHello:function(otherPersonsName){   //function이 data를 받는 방법
+        console.log("hello "+otherPersonsName+" nice to meet you")
+    }
+}
+console.log(player.name);//player object 안의 name변수 호출
+player.sayHello("lynn");//player object안의 sayHello function에 data 전달
 
