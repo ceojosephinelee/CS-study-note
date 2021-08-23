@@ -97,3 +97,26 @@ const player={
 console.log(player.name);//player object 안의 name변수 호출
 player.sayHello("lynn");//player object안의 sayHello function에 data 전달
 
+//object와 function을 이용한 계산기
+const calculator={
+    add: function(firstNum, secNum){
+        console.log(firstNum+secNum);
+    },
+    minus:function(a,b){
+        console.log(a-b);
+    },
+    div: function(a,b){
+        console.log(a/b);
+    },
+    multi:function(a,b){
+        console.log(a*b);
+    }
+    
+};
+calculator.add(5,1);
+calculator.minus(5,2);
+calculator.div(4,2);
+calculator.multi(4,2);
+
+##Return
+
