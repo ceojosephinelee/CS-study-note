@@ -1,0 +1,55 @@
+##실습환경-->vsc로-->!하고 뭐 누르면 개발 환경에 맞는 프레임이 자동으로 입력됨
+https://www.youtube.com/watch?v=Wn7j5dfbJF4-->vsc 단축키!!/vsc 익스텐션 관련 영사도 보기!!/크롬 익스텐션 연상동/
+클론코딩을 위한 개발자 도구들 잘 알아놓기!!
+
+--기본 문법태그-->검색하면 다 나옴-->w3chool.
+-->검색하는 방법: HTML ~ tag
+<strong>: 굵게, <u></u>: 밑줄
+<div>, <span>
+<h1>,<h2>,<h3>...-,<h6>까지만 있음-->뒤로 갈수록 글자가 작아짐-->글자(제목)의 크기를 결정하는 tag/<h~>는 제목의 크기
+한 웹사이트 당 태그 25~30개 정도 씀
+
+-->많이 쓰는 순서대로
+<head>,<body>,<html>,<title>,<meta>,<div>,<a>,<script>,<link>,<img>,<p>,<span>,<ul>,<br>,<style>,<li>,
+<input>,<form>,<strong>,<h1>
+
+--html new line tag
+--><br>-->여러개 쓸 수 있음-->닫을 필요 없는 태그
+--html paragraph tad
+--><p></p>-->어디서부터 어디까지 한 단락인지 표현할 수 있음..-->그래서 <br>보다 <p>태그가 더 사용성이 좋음 but 줄바꿈 많이 하고 싶으면 margin이라는 css사용하면 됨.
+ex) <p style="margin-top:45px;"></p>      //
+    <img scr="coding.jpg" width="100%">-->이미지 주소 &크기-->속성(attribute)
+    
+--부모자식과 목록
+<parent>
+   <child></child>
+</parent>
+-->이런 태그를 부모.자식 태그라고 함.
+
+--목차 태그
+--><li></li>
+control+커서로 앞에 클릭클릭하면 눌린 곳 보두 한번만 쳐도 똑같은 게 입력됨.
+<li>의 부모 태그:<ul>.<ol>-->이건 자동으로 순서대로 번호 매겨짐.
+
+--<title>태그, <meta charset="utf-8:>
+web페이지의 제목 태그/2개의 태그는 본문 설명하는 태그
+
+
+--html 구조 설명
+  <html>
+    <head>
+      <title></title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+    </body>
+  </html>  
+
+---<a>태그:링크 태그
+사용법: <a href="연결주소"></a>
+-->href: 속성
+<li><a href="index.html">,
+1.html
+2.html
+3.html
+-->페이지끼리 링크 연결하기
