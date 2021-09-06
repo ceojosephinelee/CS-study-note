@@ -1,0 +1,110 @@
+CSS-->디자인!-=========>선택자와 속성(Selector & Property)
+<style>태그
+<font>라는 html 태그를 이용하는 대신 css를 쓰는 것이 훨씬 효율적임.
+<style>
+  a{
+    color:black;-->글자 색깔-->color는 property(속성)-->태그처럼 검색!!-->검색방법: css ~ property 
+    text-decoration:none;-->글자 꾸미는 거 다 지우기-->declaration(선언)
+  }-->a는 선택자(selector): html의 모든 a 태그를 선택한다는 뜻
+</style>
+
+-->html 태그로 글자 꾸미는 법:style 속성 넣기
+--><style="color:red; text-decoration: underline">
+
+-->html 속성인 style vs <style>태그(css)
+
+css properties
+-font-size, text-align(가운데로), border-width, border-color, border-style
+
+<선택자의 기본>
+<!doctype html>
+<html>
+<head>
+  <title>WEB-CSS</title>
+  <meta charset="utf-8">
+  <style>
+    a{  -------><a>태그에 대한 선택자
+      color:black;
+      text-decoration:none;
+    }
+    .saw{  ------>class속성이 saw인 모든 class에 대한 선택자
+      color:gray;
+    }
+    h1{
+      font-size: 45px;
+      text-align:center;
+    }
+   </style>
+</head>
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+  <ol>
+    <li><a href="1.html" class="saw">HTML</a></li> ---->href, class는 모두 html 속성
+    ..
+  </ol>
+</body>
+</html>
+
+---->선택자의 우선순위(css selector라고 검색해보기)
+     id > class > 태그
+     #id /.class /
+     속성이 같다면 마지막에 등장할수록 우선순위가 높다****
+     
+     
+<css box모델>
+파일명-->box.html
+block level element(화면 전체를 쓰는 태그) vs inline element(자기 부피만큼만 선택)
+<border(테두리)>
+padding--컨텐츠와 테두리 사이의 여백/margin: 테두리 사아의 여백
+border:5px solid red;
+padding:20px;
+margin:20px;
+display:block;
+width:100px;
+
+border-bottom:1px-->컨텐츠의 아래부분에만 줄 그음.
+---->이런거 조절할 때 개발자 도구 이용(F12 or 우클릭 검사)-->margin과 padding 조절
+
+<grid>-->css layout
+<div>: 무색무취같은 태그-->block level element,<span>--><div>와 용도는 같은데 inline element
+
+#grid{
+  border:5px solid pink;
+  display:grid;
+  grid-template-columns:150px 1fr;
+}
+div{
+border:5px solid gray;
+}
+
+<div id="grid">
+
+
+
+<media query>-->반응형 웹!!
+@media(max-width:800px){--->800px보다 작아지면 display:none//min-width:800px;:800px보다 커지면 display:none
+  div{
+    display:none;
+  }
+  
+<media query써먹기>
+@media(max-width:800px){
+  #grid{
+    display:block;
+  }
+  ol{
+    border-right:none;
+  }
+  h1{
+    border-bottom:none;
+  }---->이런 식의로 800px 기준으로 css변화 줄 수 있음!!
+  
+
+
+
+
+
+
+
+
+
