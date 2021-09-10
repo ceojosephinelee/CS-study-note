@@ -1,0 +1,248 @@
+1. Flexbox--------------------------------나머지는 구글링으로 찾아야 함!!(수직, 글자 배치하는 거 card 안에--부모 자식...//
+#1.1-before flexbox
+[index.html]
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>(S)CSS Masterclass</title>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </body>
+</html>
+
+[styles.css]
+.box {
+  background: blue;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  color: white;
+}
+
+.box:nth-child(2) {
+  margin-left: 35px;
+}
+
+.box:nth-child(3) {
+  margin-left: 20px;
+}
+
+#1.2-first rules of flexbox: 1차원(column(열-세로줄)만/css는 2차원(rows and columns)
+[index.html]
+...
+  <body>
+    <div class="wrapper">-->부모 클래스
+      <div class="box">1</div>-->자식클래스--->부모인wrapper가 자식인box들을 감싸고 잇는 모양
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+[style.css]
+.wrapper {
+  display: flex;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  background: peru;
+  color: white;
+}
+#1.3 Main axis and Cross axis
+[style.css]
+.wrapper {
+  display: flex;-->flexbox 생성
+  justify-content: space-around;-->space-around가 뭐였지?? //////justify가 main axis, align이 cross axis-->default가 main axis 가 row...?
+  align-items: flex-start;-->
+  height: 100vh;-->이건왜해야할까?
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: peru;
+  color: white;
+}
+2. Grid
+#2.1-css grid basic concepts(grid-template-columns/grid-template-rows/column-gap/row-gap)
+  <body>
+    <div class="father">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+      <div class="child">4</div>
+      <div class="child">5</div>
+      <div class="child">6</div>
+      <div class="child">7</div>
+      <div class="child">8</div>
+      <div class="child">9</div>
+    </div>
+  </body>
+[style.css]
+.father { 
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 100px 50px 300px;
+  column-gap: 5px;
+  row-gap: 10px;
+}
+
+.child {
+  
+  background: peru;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+#2.2-grid template areas(header,content,nav,footer)
+[index.html]
+    <div class="grid">
+      <div class="header"></div>
+      <div class="content"></div>
+      <div class="nav"></div>
+      <div class="footer"></div>
+    </div>
+[style.css]    
+.grid {
+  display: grid;
+  grid-template-columns: auto 200px;
+  grid-template-rows: 100px repeat(2, 200px) 100px;
+  grid-template-areas:
+    "header header header header"
+    "content content content nav"
+    "content content content nav"
+    "footer footer footer footer";
+}    
+.header {
+  background-color: #2ecc71;
+  grid-area: header;
+}
+.content {
+  background-color: #3498db;
+  grid-area: content;
+}
+.nav {
+  background-color: #8e44ad;
+  grid-area: nav;
+}
+.footer {
+  background-color: #f39c12;
+  grid-area: footer;
+}
+
+
+#2.3-rows and columns--stretch
+[style.css]
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+}
+
+.header {
+  background-color: #2ecc71;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.content {
+  background-color: #3498db;   
+ }
+.nav {
+  background-color: #8e44ad;
+ }
+.footer {
+  background-color: #f39c12;
+  grid-column-start: 1;
+  grid-column-end: 5;
+} 
+#2.4-shortcuts(stretching shortcuts)
+...
+grid-column: span 4;
+...
+grid-column: 1 / -2;
+grid-row: span 2;
+...
+grid-row: span 2;
+...
+grid-column: span 4;
+...
+#2.5-line naming
+...
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: [first-line] 100px [second-line] 100px [third-line] 100px [fourth-line] 100px [fifth-line];
+  grid-template-rows: repeat(4, 100px [sexy-line]);
+}
+
+.header {
+  background-color: #2ecc71;
+  grid-column: span 4;
+}
+.content {
+  background-color: #3498db;
+  grid-column: first-line / fourth-line;
+  grid-row: sexy-line 1 / sexy-line 3;
+}
+...
+#2.6. replace items
+.grid {
+  display: grid;
+  gap: 5px;
+  height: 50vh;
+  grid-template-columns: repeat(4, 1fr);--1fr...
+  grid-template-rows: repeat(4, 1fr);
+  place-items: stretch center;
+}
+#2.7-place items
+  <body>
+    <div class="grid">
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+#2.8-place content
+.grid {
+  background: grey;
+  color: white;
+  display: grid;
+  gap: 5px;
+  height: 50vh;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  place-items: stretch center;
+  height: 250vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  place-content: end center;
+}
+
+
+
+  
+    
+
+3. Scss
