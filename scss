@@ -1,0 +1,96 @@
+<scss>-->variables/nesting/mixins/extends/responsive mixins
+~.scss-->파일 이름 아무렇게나 해도 괜찮음
+live sass compiler
+style.css
+<variables.scss>
+style.scss
+@import "variables";
+
+1. _variables.scss-->변수들 통일 가능. nesting가능
+$bg: #e7473c;
+$title: 32px;
+
+2. _mixins.scss--->scss를 함수처럼 사용-->input잇음
+
+3. _extends.scss-->다른 코드를 확장하거나 코드를 재사용하고 싶을 때-->객체 같은 개념(css계의 class)
+
+
+<example --variables.scss>
+-->sytle.scss
+@import "variables";
+h2 {
+  color: $bg;
+}
+
+.box {
+  margin-top: 20px;
+  &:hover {   -------------------->nesting, &를 씀으로써 .box:hover이렇게 안써도 됨.//hover는 mouse갖다 대면 동작하는거...?
+    background-color: green;
+  }
+  h2 {
+    color: blue;
+    &:hover {                -------------------->얼마든지 nesting 가능, 이거 진짜 좋음:)-->html태그에서 div 클래스 이름 안지어도 되고 태그가 간단해짐.
+      color: red;
+    }
+  }
+  button {
+    color: red;
+  }
+}
+
+-->_variables.scss
+$bg: #e7473c;
+$title: 32px;
+
+
+<example--mixins.scss>
+-->style.scss
+@import "_variables.scss"
+@import "_mixins.scss"
+
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {   ---->홀수 번째 객체에 대한 적용값
+    @include link(red);  --->link 함수에 $color라는 변수에 red라는 값 전달하는 느낌
+  }
+  &:nth-child(even) {  -------->짝수 번째 객체에 대한 적용값
+    @include link(blue);
+  }
+}
+
+-->_mixins.scss
+@mixin link($color) {
+  text-decoration: none;
+  display: block;
+  color: $color;
+}
+
+<ex4>
+_buttons.scss
+%button {
+  font-family: inherit;
+  border-radius: 7px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background-color: peru;
+  color: white;
+  font-weight: 500;
+}
+
+styles.scss
+@import "_buttons";
+
+a {
+  @extend %button;
+  text-decoration: none;
+}
+
+button {
+  @extend %button;
+  border: none;
+}
+
+
+
+
